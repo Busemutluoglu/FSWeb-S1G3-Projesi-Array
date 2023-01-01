@@ -40,10 +40,15 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(yenidizi){
+
+let dizi = [...yenidizi];
+
+return dizi;
+
 }
 
+console.log (orijinalTatlar);
 
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
@@ -56,9 +61,16 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
-}
+function dizi25Cesitmi(yenidizi) {
+
+    if (yenidizi.length==25) {
+
+      return true;
+    }
+
+    }
+
+console.log(dizi25Cesitmi(orijinalTatlar));
 
 
 /* Görev 3:
@@ -74,11 +86,18 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(tatlar, string){
+
+  
+
+  tatlar.unshift(string);
+
+  return tatlar; 
+ 
+   
 }
 
-
+console.log (cesitEkle(orijinalTatlar, "Kakule"));
 /* Cörev 4:
 
 Hoooppppalaa! orijinalTatlar dizisinde artık 26 aroma var! Göreviniz, dizinin sonundan bir öğeyi kaldırmaktır.
@@ -92,10 +111,14 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(dizi){
+  
+  dizi.pop();
+
+  return dizi;
 }
 
+console.log (orijinalTatlar);
 
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
@@ -108,10 +131,15 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(dizi, index){
+  
+  let cesit = dizi[index];
+
+
+  return (cesit);
 }
 
+console.log (indekstekiCesitiGetir(orijinalTatlar, 2));
 
 /* Görev 6:
 
@@ -128,15 +156,20 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(tatlar, lezzet){
+
+  tatlar.splice(tatlar.indexOf(lezzet), 1);
+
+  return tatlar;
 }
 
+console.log (orijinalTatlar, "Tarçın");
 
 /* Görev 7:
 
 14 Şubat Sevgililer Günü'nde Firma, tüm çikolata lezzetlerini öne çıkaran bir promosyon malzemeleri oluşturmak istiyor.
-Göreviniz, dizideki her bir öğeyi kontrol eden ve yalnızca verilen isimin geçtiği lezzetleri bulup orataya çıkan yeni diziyi döndüren, ismeGoreFiltrele adlı bir işlev yazmaktır.
+Göreviniz, dizideki her bir öğeyi kontrol eden ve yalnızca verilen isimin geçtiği lezzetleri bulup orataya çıkan yeni diziyi döndüren, 
+ismeGoreFiltrele adlı bir işlev yazmaktır.
 Bu, farklı tatil ve kutlamalarda "Fındık", "Fıstık", "Çikolata" vb. lezzetler için filtreleme yapabilmenizi sağlar.
 
 Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
@@ -154,11 +187,23 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreFiltrele(tatlar, filtre) {
+
+  let istenentatlar = [];
+
+  for ( let i = 0; i<tatlar.length; i++) {
+
+    if (tatlar[i].includes(filtre)) {
+
+    istenentatlar.push(tatlar[i]);
+
+    }
+  }
+  return istenentatlar;
+ 
 }
 
-
+console.log (ismeGoreCesitCikar(orijinalTatlar, "Çikolata"));
 
 /* ALIŞTIRMA */
 
@@ -172,9 +217,21 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
    Örneğin: ortalamaKelimeSayisi(orijinalTatlar) 0 ile 2 arasında bir sayı döndürmelidir.
 */
 
-function ortalamaKelimeSayisi(/*kod buraya*/){
-  /*kod buraya*/
+function ortalamaKelimeSayisi(dizi){
+  
+  let toplam = 0;
+
+  for ( let i=0; i<dizi.length; i++){
+
+    let kelimeler = dizi[i].split (" ");
+
+    toplam += kelimeler.length;
+
+
+  }
+  return (toplam / dizi.length);
 }
+console.log (ortalamaKelimeSayisi(orijinalTatlar));
 
 
 /* ALIŞTIRMA 2:
@@ -190,8 +247,11 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
 */
 
 
-function rastgeleTatlar(/*kod buraya*/){
-  /*kod buraya*/
+function rastgeleTatlar(){
+  
+
+  
+
 }
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
